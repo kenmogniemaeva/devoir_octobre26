@@ -1,0 +1,208 @@
+/* ========================================== */
+/* 1. SUPPRIMER LES STYLES PAR DÉFAUT */
+/* ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================== */
+/* 2. DÉFINIR NOS COULEURS */
+/* ========================================== */
+:root {
+    --couleur-primaire: #2c3e50;   /* bleu nuit */
+    --couleur-accent: #e74c3c;     /* rouge */
+    --couleur-fond: #ecf0f1;       /* gris clair */
+    --couleur-texte: #333;         /* gris foncé */
+}
+
+/* ========================================== */
+/* 3. BODY ET STRUCTURE GÉNÉRALE */
+/* ========================================== */
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--couleur-fond);
+    color: var(--couleur-texte);
+    line-height: 1.7;
+}
+
+.page-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* ========================================== */
+/* 4. L'EN-TÊTE / INTRO */
+/* ========================================== */
+.intro {
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--couleur-primaire), #34495e);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.intro h1 {
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+}
+
+.intro h2 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-style: italic;
+    color: #bdc3c7;
+}
+
+.intro h3 {
+    color: var(--couleur-accent);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.summary {
+    margin: 2rem auto;
+    max-width: 600px;
+    font-size: 1.1rem;
+}
+
+/* ========================================== */
+/* 5. LE CONTENU PRINCIPAL */
+/* ========================================== */
+.main {
+    flex: 2 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Chaque bloc d'article (div enfants directs) */
+.main > div {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 5px solid var(--couleur-accent);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au survol : la carte se soulève */
+.main > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Titres des articles (h3 dans le HTML !) */
+.main h3 {
+    color: var(--couleur-primaire);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+/* Paragraphes des articles */
+.main p {
+    margin-bottom: 1rem;
+}
+
+/* Les liens dans les articles */
+.main a {
+    color: var(--couleur-accent);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================== */
+/* 6. LA SIDEBAR */
+/* ========================================== */
+.sidebar {
+    flex: 1 1 0;              /* prend 1 "part" (vs 2 pour .main) */
+    min-width: 280px;         /* largeur minimum pour rester lisible */
+}
+
+.sidebar .wrapper {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    position: sticky;         /* reste visible quand on scrolle ! */
+    top: 2rem;
+}
+
+.sidebar h3 {
+    color: var(--couleur-primaire);
+    font-size: 1.2rem;
+    margin: 1.5rem 0 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--couleur-accent);
+}
+
+.sidebar h3:first-child {
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style: none;         /* supprime les puces */
+}
+
+.sidebar li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Les liens design en bleu nuit, le nom du designer en petit */
+.sidebar a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar .design-name {
+    color: var(--couleur-primaire);
+}
+
+.sidebar .designer-name {
+    color: var(--couleur-accent);
+    font-size: 0.85rem;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.sidebar a:hover {
+    color: var(--couleur-accent);
+}
+
+/* ========================================== */
+/* 7. LE FOOTER */
+/* ========================================== */
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+footer a {
+    color: white;
+    background: var(--couleur-primaire);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;      /* boutons pills */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+footer a:hover {
+    background: var(--couleur-accent);
+}
